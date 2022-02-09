@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "FastAPI"
+name = "fastapi-tutorial"
 version = "0.1.0"
 description = "fastapi-tutorial"
 authors = ["davesanna <sanna.davide32@gmail.com>"]
@@ -9,6 +9,8 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.10"
 pytest = "^7.0.0"
+pandas = "^1.4.0"
+fastapi = {extras = ["all"], version = "^0.73.0"}
 
 [tool.poetry.dev-dependencies]
 flake8 = "^4.0.1"
