@@ -9,9 +9,10 @@ from app.schemas.schemas import (
 )
 from app.database.database import get_db
 
-router = APIRouter()
+router = APIRouter(prefix="/users", tags=["users"])
 
-@router.post("/users", status_code=status.HTTP_201_CREATED, response_model=UserResponse)
+
+@router.post("/", status_code=status.HTTP_201_CREATED, response_model=UserResponse)
 def create_user(user: UserCreate, db: Session = Depends(get_db)):
 
     # generate hashing for psw
@@ -33,7 +34,7 @@ def create_user(user: UserCreate, db: Session = Depends(get_db)):
     return new_user
 
 
-@router.get("/users/{id}", response_model=UserResponse)
+@router.get("/{id}", response_model=UserResponse)
 def get_user(id: int, db: Session = Depends(get_db)):
 
     user = db.query(UserTable).filter(UserTable.id == id).first()

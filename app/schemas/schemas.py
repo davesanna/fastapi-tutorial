@@ -50,6 +50,12 @@ class UserResponse(BaseModel):
         orm_mode = True
 
 
+# login
+class UserLogin(BaseModel):
+    email: str
+    password: str
+
+
 ## SQLALCHEMY ##
 
 

@@ -3,6 +3,9 @@ import os
 from passlib.context import CryptContext
 
 
+pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+
+
 def get_keys():
     with open(os.path.join(os.path.abspath("./"), "keys.json")) as file:
         keys_file = json.load(file)
@@ -15,9 +18,11 @@ def get_keys():
 
 
 def hash(password: str):
-
     # define default hashing algorithm
-    pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
     hashed_psw = pwd_context.hash(password)
 
     return hashed_psw
+
+
+def verify(plain_psw: str, hashed_psw: str):
+    return pwd_context.verify(plain_psw, hashed_psw)

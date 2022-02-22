@@ -9,7 +9,7 @@ from app.schemas.schemas import (
 )
 from app.utils import get_keys
 from app.database.database import engine
-from app.routers import post, user
+from app.routers import post, user, auth
 
 # docu at: 127.0.0.1:8000/docs or at 127.0.0.1:8000/redoc
 
@@ -49,3 +49,4 @@ def root():
 
 app.include_router(post.router)
 app.include_router(user.router)
+app.include_router(auth.router)

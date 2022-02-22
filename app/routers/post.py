@@ -11,16 +11,16 @@ from app.schemas.schemas import (
     PostResponse,
 )
 
-router = APIRouter()
+router = APIRouter(prefix="/posts", tags=["posts"])
 
 
-@router.get("/posts", response_model=List[PostResponse])
+@router.get("/", response_model=List[PostResponse])
 def get_posts(db: Session = Depends(get_db)):
     posts = db.query(PostTable).all()
     return posts
 
 
-@router.post("/posts", status_code=status.HTTP_201_CREATED, response_model=PostResponse)
+@router.post("/", status_code=status.HTTP_201_CREATED, response_model=PostResponse)
 def create_posts(post: PostCreate, db: Session = Depends(get_db)):
 
     # cursor.execute(
@@ -40,7 +40,7 @@ def create_posts(post: PostCreate, db: Session = Depends(get_db)):
     return new_post
 
 
-@router.get("/posts/{id}", response_model=PostResponse)
+@router.get("/{id}", response_model=PostResponse)
 def get_post(id: int, db: Session = Depends(get_db)):
 
     # cursor.execute(""" SELECT * FROM post WHERE id = %s""", (str(id)))
@@ -57,7 +57,7 @@ def get_post(id: int, db: Session = Depends(get_db)):
     return post
 
 
-@router.delete("/posts/{id}", status_code=status.HTTP_404_NOT_FOUND)
+@router.delete("/{id}", status_code=status.HTTP_404_NOT_FOUND)
 def delete_post(id: int, db: Session = Depends(get_db)):
     # cursor.execute(""" DELETE FROM post WHERE id = %s RETURNING *""", str(id))
     # deleted_post = cursor.fetchone()
@@ -77,7 +77,7 @@ def delete_post(id: int, db: Session = Depends(get_db)):
     return Response(status_code=status.HTTP_204_NO_CONTENT)
 
 
-@router.put("/posts/{id}", response_model=PostResponse)
+@router.put("/{id}", response_model=PostResponse)
 def update_post(id: int, post: PostUpdate, db: Session = Depends(get_db)):
 
     # cursor.execute(
