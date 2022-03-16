@@ -1,9 +1,10 @@
-from typing import List
+from typing import List, Optional
 
 from fastapi import APIRouter, Depends, Response, status, HTTPException
 from sqlalchemy.orm import Session
 
 from app.database.database import get_db
+from oauth2 import get_current_user
 from app.schemas.schemas import (
     PostTable,
     PostCreate,
@@ -15,13 +16,30 @@ router = APIRouter(prefix="/posts", tags=["posts"])
 
 
 @router.get("/", response_model=List[PostResponse])
-def get_posts(db: Session = Depends(get_db)):
-    posts = db.query(PostTable).all()
+def get_posts(
+    db: Session = Depends(get_db),
+    current_user: int = Depends(get_current_user),
+    limit: int = 10,
+    skip: int = 0,
+    search: Optional[str] = "",
+):
+    print(limit)
+    posts = (
+        db.query(PostTable)
+        .filter(PostTable.title.contains(search))
+        .limit(limit)
+        .offset(skip)
+        .all()
+    )
     return posts
 
 
 @router.post("/", status_code=status.HTTP_201_CREATED, response_model=PostResponse)
-def create_posts(post: PostCreate, db: Session = Depends(get_db)):
+def create_posts(
+    post: PostCreate,
+    db: Session = Depends(get_db),
+    current_user: int = Depends(get_current_user),
+):
 
     # cursor.execute(
     #     """ INSERT INTO post (title, content, published) VALUES (%s, %s, %s) RETURNING *""",
@@ -30,8 +48,8 @@ def create_posts(post: PostCreate, db: Session = Depends(get_db)):
 
     # new_post = cursor.fetchone()
     # conn.commit()
-
-    new_post = PostTable(**post.dict())
+    print(current_user.email)
+    new_post = PostTable(**post.dict(), owner_id=current_user.id)
     print(new_post)
     db.add(new_post)
     db.commit()
@@ -41,7 +59,11 @@ def create_posts(post: PostCreate, db: Session = Depends(get_db)):
 
 
 @router.get("/{id}", response_model=PostResponse)
-def get_post(id: int, db: Session = Depends(get_db)):
+def get_post(
+    id: int,
+    db: Session = Depends(get_db),
+    current_user: int = Depends(get_current_user),
+):
 
     # cursor.execute(""" SELECT * FROM post WHERE id = %s""", (str(id)))
     # post = cursor.fetchone()
@@ -58,27 +80,43 @@ def get_post(id: int, db: Session = Depends(get_db)):
 
 
 @router.delete("/{id}", status_code=status.HTTP_404_NOT_FOUND)
-def delete_post(id: int, db: Session = Depends(get_db)):
+def delete_post(
+    id: int,
+    db: Session = Depends(get_db),
+    current_user: int = Depends(get_current_user),
+):
     # cursor.execute(""" DELETE FROM post WHERE id = %s RETURNING *""", str(id))
     # deleted_post = cursor.fetchone()
     # conn.commit()
 
-    deleted_post = db.query(PostTable).filter(PostTable.id == id)
+    delete_query = db.query(PostTable).filter(PostTable.id == id)
 
-    if deleted_post.first() is None:
+    post_to_delete = delete_query.first()
+
+    if post_to_delete is None:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
             detail=f"Post with id: {id} was not found.",
         )
+    if post_to_delete.owner_id != current_user.id:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="User not authorized to perform requested action",
+        )
 
-    deleted_post.delete(synchronize_session=False)  # must be the "query".delete()
+    delete_query.delete(synchronize_session=False)  # must be the "query".delete()
     db.commit()
 
     return Response(status_code=status.HTTP_204_NO_CONTENT)
 
 
 @router.put("/{id}", response_model=PostResponse)
-def update_post(id: int, post: PostUpdate, db: Session = Depends(get_db)):
+def update_post(
+    id: int,
+    post: PostUpdate,
+    db: Session = Depends(get_db),
+    current_user: int = Depends(get_current_user),
+):
 
     # cursor.execute(
     #     """UPDATE post SET title = %s, content = %s, published = %s WHERE id = %s RETURNING *""",
@@ -95,6 +133,12 @@ def update_post(id: int, post: PostUpdate, db: Session = Depends(get_db)):
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
             detail=f"Post with id: {id} was not found.",
+        )
+
+    if post_to_update.owner_id != current_user.id:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="User not authorized to perform requested action",
         )
 
     post_query.update(post.dict(), synchronize_session=False)
