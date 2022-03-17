@@ -1,21 +1,25 @@
 from typing import List, Optional
 
 from fastapi import APIRouter, Depends, Response, status, HTTPException
+from sqlalchemy import func
 from sqlalchemy.orm import Session
 
 from app.database.database import get_db
 from oauth2 import get_current_user
 from app.schemas.schemas import (
+    PostOut,
     PostTable,
     PostCreate,
     PostUpdate,
     PostResponse,
+    Vote,
+    VoteTable,
 )
 
 router = APIRouter(prefix="/posts", tags=["posts"])
 
 
-@router.get("/", response_model=List[PostResponse])
+@router.get("/", response_model=List[PostOut])
 def get_posts(
     db: Session = Depends(get_db),
     current_user: int = Depends(get_current_user),
@@ -25,12 +29,15 @@ def get_posts(
 ):
     print(limit)
     posts = (
-        db.query(PostTable)
+        db.query(PostTable, func.count(VoteTable.post_id).label("votes"))
+        .join(VoteTable, PostTable.id == VoteTable.post_id, isouter=True)
+        .group_by(PostTable.id)
         .filter(PostTable.title.contains(search))
         .limit(limit)
         .offset(skip)
         .all()
     )
+
     return posts
 
 
@@ -58,7 +65,7 @@ def create_posts(
     return new_post
 
 
-@router.get("/{id}", response_model=PostResponse)
+@router.get("/{id}", response_model=PostOut)
 def get_post(
     id: int,
     db: Session = Depends(get_db),
@@ -68,7 +75,13 @@ def get_post(
     # cursor.execute(""" SELECT * FROM post WHERE id = %s""", (str(id)))
     # post = cursor.fetchone()
 
-    post = db.query(PostTable).filter(PostTable.id == id).first()
+    post = (
+        db.query(PostTable, func.count(VoteTable.post_id).label("votes"))
+        .join(VoteTable, PostTable.id == VoteTable.post_id, isouter=True)
+        .group_by(PostTable.id)
+        .filter(PostTable.id == id)
+        .first()
+    )
 
     if not post:
         raise HTTPException(

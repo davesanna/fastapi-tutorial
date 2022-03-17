@@ -1,7 +1,7 @@
 from typing import Optional
 
 from datetime import datetime
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel, EmailStr, conint
 from sqlalchemy import TIMESTAMP, Column, ForeignKey, Integer, String, Boolean, text
 from sqlalchemy.orm import relationship
 from app.database.database import Base
@@ -46,12 +46,25 @@ class PostResponse(PostBase):
         orm_mode = True
 
 
+class PostOut(BaseModel):
+    PostTable: PostResponse
+    votes: int
+
+
 ### users ### # noqa: E266
 
 
 class UserCreate(BaseModel):
     email: EmailStr
     password: str
+
+
+### vote ### # noqa: E266
+
+
+class Vote(BaseModel):
+    post_id: str
+    direction: conint(le=1)
 
 
 # login
@@ -95,6 +108,26 @@ class UserTable(Base):
     id = Column(Integer, primary_key=True, nullable=False)
     email = Column(String, nullable=False, unique=True)
     password = Column(String, nullable=False)
+    created_at = Column(
+        TIMESTAMP(timezone=True), nullable=False, server_default=text("now()")
+    )
+
+
+class VoteTable(Base):
+    __tablename__ = "votes"
+
+    user_id = Column(
+        Integer,
+        ForeignKey("users.id", ondelete="CASCADE"),
+        primary_key=True,
+        nullable=True,
+    )
+    post_id = Column(
+        Integer,
+        ForeignKey("posts.id", ondelete="CASCADE"),
+        primary_key=True,
+        nullable=True,
+    )
     created_at = Column(
         TIMESTAMP(timezone=True), nullable=False, server_default=text("now()")
     )
