@@ -18,6 +18,7 @@ passlib = {extras = ["bcrypt"], version = "^1.7.4"}
 psycopg = "^3.0.9"
 SQLAlchemy = "^1.4.31"
 python-jose = {extras = ["cryptography"], version = "^3.3.0"}
+alembic = "^1.7.7"
 
 [tool.poetry.dev-dependencies]
 flake8 = "^4.0.1"

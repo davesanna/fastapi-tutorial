@@ -1,0 +1,74 @@
+alembic==1.7.7
+anyio @ file:///Users/davide/Library/Caches/pypoetry/artifacts/11/7e/c2/982c23702e5de96565320b9ea0a5f5511c9a515605ce439e6628a72a9a/anyio-3.5.0-py3-none-any.whl
+asgiref @ file:///Users/davide/Library/Caches/pypoetry/artifacts/71/66/fe/0268717622fd9cf036d2fb46b7ad84ad39e3776bc461ce21a4284f32d2/asgiref-3.5.0-py3-none-any.whl
+attrs @ file:///Users/davide/Library/Caches/pypoetry/artifacts/c4/ee/75/fcd6c2f4c5a1d60b1bcd97014702ca01b3f032fd927d88780b38708409/attrs-21.4.0-py2.py3-none-any.whl
+bcrypt==3.2.0
+black @ file:///Users/davide/Library/Caches/pypoetry/artifacts/94/90/bf/dd9d823fb584ad2ccab606e2d6afa035762c150335fe440062d6c92a07/black-22.1.0-cp310-cp310-macosx_11_0_arm64.whl
+certifi @ file:///Users/davide/Library/Caches/pypoetry/artifacts/89/06/5b/e4bfdf1b8370bdc0a26198e81afa98f68c01a8b1b515c9108c6ad98d8a/certifi-2021.10.8-py2.py3-none-any.whl
+cffi==1.15.0
+cfgv @ file:///Users/davide/Library/Caches/pypoetry/artifacts/35/10/a3/f57b5e70e8b5d5f31bccdd15df3781efda09dc1b44b473591e360c20e5/cfgv-3.3.1-py2.py3-none-any.whl
+charset-normalizer @ file:///Users/davide/Library/Caches/pypoetry/artifacts/f4/80/c8/1b0ac4ebd0be6cfaa3e7257ab200f289221fe63d077c36855d2495dd11/charset_normalizer-2.0.11-py3-none-any.whl
+click @ file:///Users/davide/Library/Caches/pypoetry/artifacts/fa/59/1c/2eaf2b8f82cecf1e8d2d6dba67bd01214cf590d308bd9c917aa19c3eda/click-8.0.3-py3-none-any.whl
+cryptography @ file:///Users/davide/Library/Caches/pypoetry/artifacts/ed/b4/0e/c6a2845a6ff83f6592119d45e3feb993524bac9a0db84b68a9c2734cef/cryptography-36.0.1-cp36-abi3-macosx_10_10_universal2.whl
+distlib @ file:///Users/davide/Library/Caches/pypoetry/artifacts/c6/c9/9e/cc7bc0747799b29bba3f47bcb03116150430ae8e40a7477a11ff4fdc11/distlib-0.3.4-py2.py3-none-any.whl
+dnspython @ file:///Users/davide/Library/Caches/pypoetry/artifacts/0d/fb/26/e62d9a4431aaad23a8155ea7ecd48fe20d6111660b6f9fe5fdacc7c546/dnspython-2.2.0-py3-none-any.whl
+ecdsa @ file:///Users/davide/Library/Caches/pypoetry/artifacts/1d/d1/76/c0d4d78e6164129b585167a5cf86f50564e94af8d96beb261c1f02d065/ecdsa-0.17.0-py2.py3-none-any.whl
+email-validator @ file:///Users/davide/Library/Caches/pypoetry/artifacts/a5/49/83/6562868b52e8a8e99a6358252de5cc9436b9e40835ee4fdf845f5c276a/email_validator-1.1.3-py2.py3-none-any.whl
+fastapi @ file:///Users/davide/Library/Caches/pypoetry/artifacts/f8/52/2b/99a822b2d4108fd7a029ca57225712af7c833388121694a2e956a79c1f/fastapi-0.73.0-py3-none-any.whl
+filelock @ file:///Users/davide/Library/Caches/pypoetry/artifacts/90/ad/50/8701eea19b46dab70b9f4f7374a169375f63b881d93c3108580b9aa623/filelock-3.4.2-py3-none-any.whl
+flake8 @ file:///Users/davide/Library/Caches/pypoetry/artifacts/6b/d8/67/6516837c645c57af9cad7b290e1e6cbe92a126641fa84a5dde6495f3c3/flake8-4.0.1-py2.py3-none-any.whl
+h11 @ file:///Users/davide/Library/Caches/pypoetry/artifacts/ef/5c/a2/a6d556bc5e3493616e52726df9c880b2da2fbf9c3be5e8351c84fbfafd/h11-0.13.0-py3-none-any.whl
+httptools @ file:///Users/davide/Library/Caches/pypoetry/artifacts/ed/8c/4c/0af348b101105c1c8cd495d877dfdf0e3307a287a170c2c0accf92beac/httptools-0.2.0.tar.gz
+identify @ file:///Users/davide/Library/Caches/pypoetry/artifacts/9d/85/f2/04ef759c36073471c3f9ed787b14956f9256a44e2ef3299d049ceb420e/identify-2.4.8-py2.py3-none-any.whl
+idna @ file:///Users/davide/Library/Caches/pypoetry/artifacts/90/36/8c/81eabf6ac88608721ab27f439c9a6b9a8e6a21cc58c59ebb1a42720199/idna-3.3-py3-none-any.whl
+iniconfig @ file:///Users/davide/Library/Caches/pypoetry/artifacts/1d/67/0c/79706e7a41ef01be0b1a38aa3b4ddc9bd800a95ccd8d8dc7de4e090623/iniconfig-1.1.1-py2.py3-none-any.whl
+isort @ file:///Users/davide/Library/Caches/pypoetry/artifacts/12/e3/f1/e8e484225dcc659de6e4ac34a4ad996cb71f36119e54e71462cc7ad7e8/isort-5.10.1-py3-none-any.whl
+itsdangerous @ file:///Users/davide/Library/Caches/pypoetry/artifacts/9d/31/b9/f82a17d67c73a6558d112139c94bcc79f3a1387498e880c0b753f65bb3/itsdangerous-2.0.1-py3-none-any.whl
+Jinja2 @ file:///Users/davide/Library/Caches/pypoetry/artifacts/dd/4d/f2/ed69d2df6f04771b897d2668116812398a0e503da1b6f48cbad5a8c8f2/Jinja2-3.0.3-py3-none-any.whl
+Mako==1.2.0
+MarkupSafe @ file:///Users/davide/Library/Caches/pypoetry/artifacts/e7/29/12/c0363ca16b95996c62ddedd290de2d2d52daf04f0f897929bd8e47755c/MarkupSafe-2.0.1-cp310-cp310-macosx_10_9_universal2.whl
+mccabe @ file:///Users/davide/Library/Caches/pypoetry/artifacts/a3/d3/68/f7f7115194f6fe8c487def3afa3b089a428f90650cf1b7be71afa83d12/mccabe-0.6.1-py2.py3-none-any.whl
+mypy @ file:///Users/davide/Library/Caches/pypoetry/artifacts/7d/80/82/6e14cecc1a16e766616a500f4b9eaf6ba73d235d3e2e9bceaefa976ecd/mypy-0.931-cp310-cp310-macosx_11_0_arm64.whl
+mypy-extensions @ file:///Users/davide/Library/Caches/pypoetry/artifacts/2f/c6/09/3e1afdcb75322c65b786e63cd7e879b6be3db36dea78ca376db5483ae4/mypy_extensions-0.4.3-py2.py3-none-any.whl
+nodeenv @ file:///Users/davide/Library/Caches/pypoetry/artifacts/41/0a/a7/9f3b1a3b2b48691106e0b8583dc2e38ccb0543a3106bcc508d3b96d5a6/nodeenv-1.6.0-py2.py3-none-any.whl
+numpy @ file:///Users/davide/Library/Caches/pypoetry/artifacts/de/7d/1c/4e81ea0d678aacdda490e0d70b13223fdf9921235311c4245a11cee978/numpy-1.22.2-cp310-cp310-macosx_11_0_arm64.whl
+orjson @ file:///Users/davide/Library/Caches/pypoetry/artifacts/3f/09/63/d582b0b449af27357fa176e0e6acbbee7660cc29d4cf20a11e8709c18a/orjson-3.6.6-cp310-cp310-macosx_10_9_x86_64.macosx_11_0_arm64.macosx_10_9_universal2.whl
+packaging @ file:///Users/davide/Library/Caches/pypoetry/artifacts/d3/1f/90/3f2473250ebd055fe7f0856810677783949fc0d2e5f25bbb4dc00ad0a9/packaging-21.3-py3-none-any.whl
+pandas @ file:///Users/davide/Library/Caches/pypoetry/artifacts/6e/3f/6b/54652dd25d93aff8a65e858a7e4b6fd0236298efd0c542c0cd75621bf6/pandas-1.4.0-cp310-cp310-macosx_11_0_arm64.whl
+passlib==1.7.4
+pathspec @ file:///Users/davide/Library/Caches/pypoetry/artifacts/48/a0/9f/f5128d9e11d591bca7a942dd80ec44f9b2de8294775c68e0b99beeef93/pathspec-0.9.0-py2.py3-none-any.whl
+platformdirs @ file:///Users/davide/Library/Caches/pypoetry/artifacts/0c/47/e1/fc280f01f47c65d2f8b5dc54fb1a127d9738c5b8f241563cfca7408c8a/platformdirs-2.4.1-py3-none-any.whl
+pluggy @ file:///Users/davide/Library/Caches/pypoetry/artifacts/49/3e/55/309ec3705ba3309d817d531002c0a02f643d06c5d5a889ce43236130d5/pluggy-1.0.0-py2.py3-none-any.whl
+pre-commit @ file:///Users/davide/Library/Caches/pypoetry/artifacts/fc/30/56/6e88f7cca20398249e560ea378447c2f4b60c1fe8baecc5fd2c194bf16/pre_commit-2.17.0-py2.py3-none-any.whl
+psycopg @ file:///Users/davide/Library/Caches/pypoetry/artifacts/8c/2a/aa/b673821ad41321e9330399b690866f2a29d3d82db31e8108d6bafbbb64/psycopg-3.0.9-py3-none-any.whl
+psycopg2-binary @ file:///Users/davide/Library/Caches/pypoetry/artifacts/64/17/37/da0f1ed0fcf79b0aee0957e37f049a8919e418d5c813811ab1572d61ff/psycopg2-binary-2.9.3.tar.gz
+py @ file:///Users/davide/Library/Caches/pypoetry/artifacts/71/fb/64/bfdc833c2055a893883f33deaac35ef2cbdd95d58031cfc69a630f32bf/py-1.11.0-py2.py3-none-any.whl
+pyasn1 @ file:///Users/davide/Library/Caches/pypoetry/artifacts/c2/76/ab/a9803cfd0691d31abaeaaf0c6477e76f673b71f11a2959d0ce3ea20775/pyasn1-0.4.8-py2.py3-none-any.whl
+pycodestyle @ file:///Users/davide/Library/Caches/pypoetry/artifacts/67/1d/0b/aa6ec86495f3fc57e748e006fb36d7b4e65ddaf6de336617166ccad96d/pycodestyle-2.8.0-py2.py3-none-any.whl
+pycparser==2.21
+pydantic @ file:///Users/davide/Library/Caches/pypoetry/artifacts/83/08/be/3691184da5162d8e082ed2c7031eeaad90974e0b81834836e34a2c3557/pydantic-1.9.0-cp310-cp310-macosx_11_0_arm64.whl
+pyflakes @ file:///Users/davide/Library/Caches/pypoetry/artifacts/ce/06/1e/5fd69e017a941ae783a7e4d3fb29abc5238f0026d7745b4dc26d7e3379/pyflakes-2.4.0-py2.py3-none-any.whl
+pyparsing @ file:///Users/davide/Library/Caches/pypoetry/artifacts/dd/d9/cf/3501b38e834b80f9ba80633358cced32539bea5dc1e786f4c2b1d2f682/pyparsing-3.0.7-py3-none-any.whl
+pytest @ file:///Users/davide/Library/Caches/pypoetry/artifacts/f3/da/1d/7fc555e90ae58381829dc7a3ac395b4f63aa26dae029aef2dbe95fa42e/pytest-7.0.0-py3-none-any.whl
+python-dateutil @ file:///Users/davide/Library/Caches/pypoetry/artifacts/39/9b/3b/576da7c854551d780528d75132c98882925e44de0aecf8a31a4bea379c/python_dateutil-2.8.2-py2.py3-none-any.whl
+python-dotenv @ file:///Users/davide/Library/Caches/pypoetry/artifacts/6b/37/6c/56779e11f416c21027bce901621ae7a5fa1c89d2286e1d206e7167f3e5/python_dotenv-0.19.2-py2.py3-none-any.whl
+python-jose @ file:///Users/davide/Library/Caches/pypoetry/artifacts/e3/e4/68/7075eabcf4ff7b4e10119633d537db7ede7c876afd31d68ae07f6319fb/python_jose-3.3.0-py2.py3-none-any.whl
+python-multipart @ file:///Users/davide/Library/Caches/pypoetry/artifacts/1a/fc/d3/c5be80a6b7349ef0d8ea0e0fee8e2ea35eec196b3764ef1eda8a911a65/python-multipart-0.0.5.tar.gz
+pytz @ file:///Users/davide/Library/Caches/pypoetry/artifacts/a0/f8/66/b50e6d372fa21e4d6db4b2fe5c5e94aaf59b82d02a7b3215fbc4fae889/pytz-2021.3-py2.py3-none-any.whl
+PyYAML @ file:///Users/davide/Library/Caches/pypoetry/artifacts/b6/23/45/f5dfdd6e8ba0f620504858ddeb20b47f50b03d0c4b18f873f6575d2e78/PyYAML-5.4.1.tar.gz
+requests @ file:///Users/davide/Library/Caches/pypoetry/artifacts/d2/b2/c6/a04ce59140c6739203837d8dd0f518e29051b7ab61d2f34d4fd4241d30/requests-2.27.1-py2.py3-none-any.whl
+rsa @ file:///Users/davide/Library/Caches/pypoetry/artifacts/70/0c/f9/97e3edaca4ca8b69ad6238dbce3ca02c48f17972f71e2ce56b44a6a0e9/rsa-4.8-py3-none-any.whl
+six @ file:///Users/davide/Library/Caches/pypoetry/artifacts/89/b2/f8/fd92b6d5daa0f8889429b2fc67ec21eedc5cae5d531ee2853828ced6c7/six-1.16.0-py2.py3-none-any.whl
+sniffio @ file:///Users/davide/Library/Caches/pypoetry/artifacts/2b/1b/93/9c34d727e29f7bb11ce5b2ca7f43e77cb4e96a81ee5e07a92763951416/sniffio-1.2.0-py3-none-any.whl
+SQLAlchemy==1.4.31
+starlette @ file:///Users/davide/Library/Caches/pypoetry/artifacts/dd/06/3f/50a35a4853d7c822d9552eba04955f20cb5be7f501e9ad8931f5f1db89/starlette-0.17.1-py3-none-any.whl
+toml @ file:///Users/davide/Library/Caches/pypoetry/artifacts/51/ac/24/674da558495229c57c3d2333cb23e24aac7aadf723ced29e2cc41a9e6e/toml-0.10.2-py2.py3-none-any.whl
+tomli @ file:///Users/davide/Library/Caches/pypoetry/artifacts/62/12/b6/6db9ebb9c8e1a6c5aa8a92ae73098d8119816b5e8507490916621bc305/tomli-2.0.1-py3-none-any.whl
+typing_extensions @ file:///Users/davide/Library/Caches/pypoetry/artifacts/4f/0f/a7/b082eaf8890f4023be4c474d1c6eb672d28c6602d213a487c61e19a66b/typing_extensions-4.0.1-py3-none-any.whl
+ujson @ file:///Users/davide/Library/Caches/pypoetry/artifacts/78/e7/46/cf0d9a2796ec390fe948df2552d4ec8247e0b83fc8a0f2d1364f323474/ujson-4.3.0.tar.gz
+urllib3 @ file:///Users/davide/Library/Caches/pypoetry/artifacts/1e/1d/9c/5b858776b9634f0a4a7bd2f7ff7751021cdc2604dbc44f794440ba8983/urllib3-1.26.8-py2.py3-none-any.whl
+uvicorn @ file:///Users/davide/Library/Caches/pypoetry/artifacts/97/6b/c7/891e5b09cf4b3c14e2bdf76cbf9069ead35204879482b26e0e2369b951/uvicorn-0.15.0-py3-none-any.whl
+uvloop @ file:///Users/davide/Library/Caches/pypoetry/artifacts/1d/07/1f/baa800dc5cd0930b67c868a65a6c0732dede102a744f6cf60fb42febbd/uvloop-0.16.0-cp310-cp310-macosx_10_9_universal2.whl
+virtualenv @ file:///Users/davide/Library/Caches/pypoetry/artifacts/a2/13/72/40abe3b6fb63dd00d41e0fdba512740de14315543a1c8764423da45d34/virtualenv-20.13.1-py2.py3-none-any.whl
+watchgod @ file:///Users/davide/Library/Caches/pypoetry/artifacts/92/50/08/67daaf137f6520a077d5562c64f816355d44a02cef3b89ab55fb9cb127/watchgod-0.7-py3-none-any.whl
+websockets @ file:///Users/davide/Library/Caches/pypoetry/artifacts/93/38/bc/1c242fffb5acbaa00a76f8ade76942dd778589a788aefb8272e515ef12/websockets-10.1-cp310-cp310-macosx_11_0_arm64.whl
