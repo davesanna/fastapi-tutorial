@@ -8,9 +8,7 @@ from app.routers import post, user, auth, vote
 logging.config.fileConfig("logging.config", disable_existing_loggers=False)
 logger = logging.getLogger(__name__)
 
-# from app.schemas.schemas import (
-#     Base,
-# )
+# from app.schemas.schemas import Base
 # from app.database.database import engine
 # creates table based on sqlalchemy classes if not exist (not needed anymore with Alembic) # noqa: E501
 # Base.metadata.create_all(bind=engine)
