@@ -27,5 +27,10 @@ COPY . .
 
 ENV IS_DOCKER="True"
 
+ADD start.sh /
+RUN chmod +x /start.sh
+
+
 # Execute command
-CMD ["poetry", "run", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+#CMD ["poetry", "run", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["/start.sh"]

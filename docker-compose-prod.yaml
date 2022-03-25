@@ -1,0 +1,35 @@
+version: "3.9"  # optional since v1.27.0
+services:
+  # arbitrary name of the container (we choose it)
+  api:
+    # path to the DockerFile (in the relation to the docker-compose file, so the current directory ".")
+    build: .
+    depends_on:
+      - postgres
+    # port of the container to open up in order to communicate to the api
+    ports:
+      - 80:8000  # <port on localhost>:<port on container>
+    #command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    # env_file:
+    #   - ./.env
+    environment:
+      - ACCESS_TOKEN_EXPIRE_MINUTES=${ACCESS_TOKEN_EXPIRE_MINUTES}
+      - ALGORITHM=${ALGORITHM}
+      - DATABASE_HOSTNAME=${DATABASE_HOSTNAME} # same as other container name, since docker resolves it with DNS and internal network
+      - DATABASE_NAME=${DATABASE_NAME}
+      - DATABASE_PASSWORD=${DATABASE_PASSWORD}
+      - DATABASE_PORT=${DATABASE_PORT}
+      - DATABASE_USERNAME=${DATABASE_USERNAME}
+      - SECRET_KEY=${SECRET_KEY}
+  # second container for database
+  postgres:
+    image: postgres
+    environment: #see postgres docker docu https://hub.docker.com/_/postgres
+      - POSTGRES_PASSWORD=${DATABASE_PASSWORD} # password
+      - POSTGRES_DB=${DATABASE_NAME} # db name 
+
+    volumes:
+      - postgres-db:/var/lib/postgresql/data # from docu https://hub.docker.com/_/postgres
+
+volumes:
+  postgres-db: 
