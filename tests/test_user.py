@@ -1,12 +1,11 @@
-from fastapi.testclient import TestClient
+from app.schemas.schemas import UserResponse
+from tests.database import (
+    client,
+    session,
+)  # we need to import both fixtures since one is dependent from the other
 
-from app.main import app
-from app.schemas import UserResponse
 
-client = TestClient(app)
-
-
-def test_root():
+def test_root(client):
     res = client.get("/")
     print(res.json().get("message"))
     print(res.status_code)
@@ -14,7 +13,7 @@ def test_root():
     assert res.status_code == 200
 
 
-def test_create_user():
+def test_create_user(client):
     res = client.post(
         "/users/", json={"email": "topogigio@gmail.com", "password": "test123"}
     )
@@ -23,4 +22,15 @@ def test_create_user():
     new_user = UserResponse(**res.json())
 
     assert new_user.email == "topogigio@gmail.com"
-    assert res.status_code == 201
+    assert (
+        res.status_code == 201
+    )  # watch out to the url passed into client.post, it has to be /<name>/ and not /<name> otherwise, it redirects and returns a 307 first
+
+
+def test_login_user(client):
+    res = client.post(
+        "/login", data={"username": "topogigio@gmail.com", "password": "test123"}
+    )  # in this case we use /<name> since the route does not have a prefix, and data instead of json
+
+    print(res.json())
+    assert res.status_code == 200
