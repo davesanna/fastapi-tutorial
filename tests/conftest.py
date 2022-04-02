@@ -8,7 +8,8 @@ from sqlalchemy.orm import sessionmaker
 from app.config import settings
 from app.database.database import Base, get_db
 from app.main import app
-from app.schemas.schemas import UserResponse, PostTable
+from app.schemas.schemas import UserResponse, PostTable, VoteTable
+
 from oauth2 import create_access_token
 
 # during testing we can hard code the variables
@@ -122,3 +123,12 @@ def test_posts(session, test_user, test_user2):
     queried_posts = session.query(PostTable).all()
 
     return queried_posts
+
+
+@pytest.fixture
+def test_vote(test_posts, session, test_user):
+
+    new_vote = VoteTable(post_id=test_posts[3].id, user_id=test_user["id"])
+
+    session.add(new_vote)
+    session.commit()
