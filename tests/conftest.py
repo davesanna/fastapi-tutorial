@@ -86,7 +86,7 @@ def authorized_client(client, token):
 
 
 @pytest.fixture
-def test_posts(session, test_user, test_user_2):
+def test_posts(session, test_user, test_user2):
     posts_data = [
         {
             "title": "First Title",
@@ -106,7 +106,7 @@ def test_posts(session, test_user, test_user_2):
         {
             "title": "First Title",
             "content": "third content",
-            "owner_id": test_user_2["id"],
+            "owner_id": test_user2["id"],
         },
     ]
 

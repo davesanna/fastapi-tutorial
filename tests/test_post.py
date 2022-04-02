@@ -7,7 +7,7 @@ def test_get_all_posts(authorized_client, test_posts):
 
     # validate response with pydantic schema
     def validate(post):
-        return PostResponse(**post)
+        return PostOut(**post)
 
     posts_list = list(map(validate, res.json()))
 
@@ -113,7 +113,7 @@ def test_delete_post_non_existing(authorized_client, test_user, test_posts):
     assert res.status_code == 404
 
 
-def test_delete_other_user_post(authorized_client, test_user, test_user_2, test_posts):
+def test_delete_other_user_post(authorized_client, test_user, test_user2, test_posts):
     res = authorized_client.delete(
         f"/posts/{test_posts[3].id}",
     )
