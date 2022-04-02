@@ -119,3 +119,52 @@ def test_delete_other_user_post(authorized_client, test_user, test_user2, test_p
     )
 
     assert res.status_code == 403
+
+
+def test_update_post(authorized_client, test_user, test_posts):
+    data = {
+        "title": "updated title",
+        "content": "updated content",
+        "id": test_posts[0].id,
+    }
+
+    res = authorized_client.put(f"/posts/{test_posts[0].id}", json=data)
+    updated_post = PostResponse(**res.json())
+    assert res.status_code == 200
+    assert updated_post.title == "updated title"
+    assert updated_post.content == "updated content"
+
+
+def test_update_other_user_post(authorized_client, test_user, test_user2, test_posts):
+    data = {
+        "title": "updated title",
+        "content": "updated content",
+        "id": test_posts[3].id,
+    }
+
+    res = authorized_client.put(f"/posts/{test_posts[3].id}", json=data)
+    assert res.status_code == 403
+
+
+def test_unauthorized_user_update_post(client, test_user, test_posts):
+    data = {
+        "title": "updated title",
+        "content": "updated content",
+        "id": test_posts[0].id,
+    }
+
+    res = client.put(f"/posts/{test_posts[0].id}", json=data)
+
+    assert res.status_code == 401
+
+
+def test_update_post_non_existing(authorized_client, test_user, test_posts):
+    data = {
+        "title": "updated title",
+        "content": "updated content",
+        "id": test_posts[0].id,
+    }
+
+    res = authorized_client.put("/posts/342323423", json=data)
+
+    assert res.status_code == 404
