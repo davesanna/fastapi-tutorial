@@ -94,6 +94,7 @@ jobs:
           host: ${{ secrets.UBUNTU_HOST }}
           username: ${{ secrets.UBUNTU_USERNAME }}
           key: ${{ secrets.SSH_KEY }}
+          passphrase: ${{ secrets.UBUNTU_PASSWORD }}
           script: |
             cd app/src
             git pull 
