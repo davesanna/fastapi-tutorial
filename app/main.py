@@ -28,7 +28,7 @@ app.add_middleware(
 
 @app.get("/")  # path operation
 def root():
-    return {"message": "lololo Ubuntu"}
+    return {"message": "Hey Ubuntu!"}
 
 
 app.include_router(post.router)
